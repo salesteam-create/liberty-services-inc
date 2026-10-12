@@ -78,7 +78,7 @@ def header():
   </div>
   <div class="navbar">
     <div class="container">
-      <a class="brand" href="{u()}" aria-label="Liberty Services home"><img src="{a('img/logo-liberty.png')}" alt="Liberty Services Inc." width="96" height="56"></a>
+      <a class="brand" href="{u()}" aria-label="Liberty Services home"><img src="{a('img/logo-liberty-horizontal.png')}" alt="Liberty Services Inc." width="144" height="46"></a>
       <nav class="nav" aria-label="Main">
         <div class="nav__item has-menu{about_cur}">
           <button class="nav__link" aria-expanded="false" aria-haspopup="true">About Us {icon('chevron-down')}</button>
@@ -109,7 +109,7 @@ def header():
   <div class="drawer__scrim" data-close-drawer></div>
   <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
     <div class="drawer__top">
-      <img src="{a('img/logo-liberty.png')}" alt="Liberty Services Inc.">
+      <img src="{a('img/logo-liberty-horizontal.png')}" alt="Liberty Services Inc." width="144" height="46">
       <button class="nav-toggle drawer__close" style="display:inline-flex" aria-label="Close menu" data-close-drawer>{icon('x')}</button>
     </div>
     <nav class="drawer__nav" aria-label="Mobile">
@@ -153,7 +153,7 @@ def footer(proto=False):
     return f"""<footer class="footer">
   <div class="container footer__main">
     <div class="footer__brand">
-      <a href="{u()}" aria-label="Liberty Services home"><img src="{a('img/logo-liberty.png')}" alt="Liberty Services Inc." loading="lazy"></a>
+      <a href="{u()}" aria-label="Liberty Services home"><img src="{a('img/logo-liberty-horizontal.png')}" alt="Liberty Services Inc." width="144" height="46" loading="lazy"></a>
       <p>Kitchen hood cleaning and grease containment specialists serving commercial kitchens across the Midwest for over two decades.</p>
       <div class="footer__badges"><span>IKECA certified</span><span>NFPA member</span><span>Bonded & insured</span></div>
     </div>

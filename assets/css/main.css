@@ -140,7 +140,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .navbar { background: #fff; }
 .navbar .container { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 24px; }
 .brand { display: flex; align-items: center; flex: none; }
-.brand img { height: 56px; width: auto; }
+.brand img { height: 46px; width: auto; }
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav__item { position: relative; }
 .nav__link {
@@ -183,7 +183,7 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .drawer.is-open .drawer__panel { transform: none; }
 .drawer__top { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--border-soft); }
-.drawer__top img { height: 46px; width: auto; }
+.drawer__top img { height: 40px; width: auto; }
 .drawer__nav { padding: 8px 16px; }
 .drawer__nav > a, .drawer__group > button {
   display: flex; width: 100%; justify-content: space-between; align-items: center; padding: 14px 0;
@@ -517,7 +517,7 @@ h1, h2, h3, h4, p { margin: 0; }
 /* Footer */
 .footer { background: var(--navy-900); color: rgba(255, 255, 255, .7); }
 .footer__main { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 80px; padding-top: 56px; padding-bottom: 28px; }
-.footer__brand img { height: 66px; width: auto; background: #fff; border-radius: 8px; padding: 6px 10px; }
+.footer__brand img { height: 62px; width: auto; background: #fff; border-radius: 8px; padding: 8px 12px; }
 .footer__brand p { font-size: 12px; line-height: 1.32; margin-top: 20px; }
 .footer__badges { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
 .footer__badges span { font-size: 10px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; padding: 4px 8px; border: 1px solid rgba(255, 255, 255, .2); border-radius: 2px; color: var(--blue-100); }
@@ -699,7 +699,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   .nav-toggle { display: inline-flex; }
   .header-phone { display: inline-flex; }
   .navbar .container { height: 66px; }
-  .brand img { height: 48px; }
+  .brand img { height: 40px; }
   .utility__links a:first-child { display: none; }
   .hero__inner { grid-template-columns: 1fr; gap: 40px; padding-top: 48px; padding-bottom: 110px; min-height: 0; }
   .hero__copy { max-width: 640px; }
