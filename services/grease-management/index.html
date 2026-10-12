@@ -195,10 +195,36 @@
     <div class="faq-cta"><a class="btn btn--blue" href="../../contact/">Ask us a question <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
   </div>
 </section>
-<section class="cta-band">
+<section class="cta-band cta-band--form" id="request-quote">
   <div class="container">
-    <div><h2>Schedule your service today</h2><p>One partner for hood cleaning, filter exchange, grease management and rooftop services. Start with a free site survey.</p></div>
-    <div class="btn-row"><a class="btn btn--white" href="../../contact/">Schedule Free Survey <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a><a class="btn btn--ghost btn-phone" href="tel:+19376983322"><svg class="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 937-698-3322</a></div>
+    <div class="cta-band__copy">
+      <span class="eyebrow" style="color:#FFD9D9">Request a quote</span>
+      <h2>Schedule your service today</h2><p>One partner for hood cleaning, filter exchange, grease management and rooftop services. Start with a free site survey.</p>
+      <ul class="cta-band__ticks"><li><svg class="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Free site survey and written quote</li><li><svg class="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>First service free for new programs</li><li><svg class="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>NFPA 96 compliant, IKECA certified</li></ul>
+      <div class="btn-row"><a class="btn btn--ghost btn-phone" href="tel:+19376983322"><svg class="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 937-698-3322</a></div>
+    </div>
+    <div class="form-card form-card--compact">
+  <form class="js-quote" novalidate>
+    <h2 class="qf-title">Request a quote</h2>
+    <p class="qf-sub">Tell us a little about your kitchen. It takes under a minute.</p>
+    <div class="form-grid form-grid--compact">
+      <div class="field"><label for="bq-name">Full name *</label><input id="bq-name" name="name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
+      <div class="field"><label for="bq-biz">Business name *</label><input id="bq-biz" name="business" autocomplete="organization" required><span class="err">Please enter your business name.</span></div>
+      <div class="field"><label for="bq-phone">Phone *</label><input id="bq-phone" name="phone" type="tel" autocomplete="tel" required><span class="err">Please enter a valid phone number.</span></div>
+      <div class="field"><label for="bq-email">Email *</label><input id="bq-email" name="email" type="email" autocomplete="email" required><span class="err">Please enter a valid email.</span></div>
+      <div class="field"><label for="bq-state">State *</label><select id="bq-state" name="state" required><option value="">Select</option><option>Ohio</option><option>Indiana</option><option>Kentucky</option><option>Michigan</option><option>West Virginia</option><option>Other</option></select><span class="err">Please choose a state.</span></div>
+      <div class="field"><label for="bq-svc">Service *</label><select id="bq-svc" name="service" required><option value="">Select</option><option value="hood-cleaning">Hood Cleaning</option><option value="filter-exchange">Filter Exchange</option><option value="grease-management" selected>Grease Management</option><option value="rooftop-services">Rooftop Services</option><option value="not-sure">Not sure yet</option></select><span class="err">Please choose a service.</span></div>
+    </div>
+    <button class="btn btn--red btn--block" type="submit">Request My Free Quote <svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+    <small class="qf-note">No obligation. We reply within one business day.</small>
+  </form>
+  <div class="form-success" role="status" aria-live="polite">
+    <div class="ok"><svg class="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h2 class="qf-title">Thanks. We have your request.</h2>
+    <p>We will contact you within one business day to schedule your free site survey. Need us sooner? Call 937-698-3322.</p>
+    <div class="btn-row" style="justify-content:center;margin-top:16px"><button class="btn btn--outline" type="button" data-reset-form>Send another request</button></div>
+  </div>
+</div>
   </div>
 </section>
 </main>

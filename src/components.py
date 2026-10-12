@@ -655,7 +655,55 @@ def faq_section(items=None, title="Hood cleaning questions, answered.", soft=Tru
 </section>"""
 
 
-def cta_band(title="Next fire inspection coming up?", text="Book a free site survey today and get a written quote for your kitchen exhaust cleaning.", primary=True):
+SHORT_STATES = ["Ohio", "Indiana", "Kentucky", "Michigan", "West Virginia", "Other"]
+
+
+def quote_form(prefix, title="Get a free quote", sub="First service free for new compliance programs.", service=None):
+    """Short quote form used in the home hero and the closing CTA section.
+    Front-end only: validation and success state, no data is sent."""
+    states = "".join(f"<option>{x}</option>" for x in SHORT_STATES)
+    opts = "".join(
+        f'<option value="{s["slug"]}"{" selected" if s["slug"] == service else ""}>{s["name"]}</option>' for s in SERVICES
+    ) + '<option value="not-sure">Not sure yet</option>'
+    f = prefix
+    return f"""<div class="form-card form-card--compact">
+  <form class="js-quote" novalidate>
+    <h2 class="qf-title">{title}</h2>
+    <p class="qf-sub">{sub}</p>
+    <div class="form-grid form-grid--compact">
+      <div class="field"><label for="{f}-name">Full name *</label><input id="{f}-name" name="name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
+      <div class="field"><label for="{f}-biz">Business name *</label><input id="{f}-biz" name="business" autocomplete="organization" required><span class="err">Please enter your business name.</span></div>
+      <div class="field"><label for="{f}-phone">Phone *</label><input id="{f}-phone" name="phone" type="tel" autocomplete="tel" required><span class="err">Please enter a valid phone number.</span></div>
+      <div class="field"><label for="{f}-email">Email *</label><input id="{f}-email" name="email" type="email" autocomplete="email" required><span class="err">Please enter a valid email.</span></div>
+      <div class="field"><label for="{f}-state">State *</label><select id="{f}-state" name="state" required><option value="">Select</option>{states}</select><span class="err">Please choose a state.</span></div>
+      <div class="field"><label for="{f}-svc">Service *</label><select id="{f}-svc" name="service" required><option value="">Select</option>{opts}</select><span class="err">Please choose a service.</span></div>
+    </div>
+    <button class="btn btn--red btn--block" type="submit">Request My Free Quote {icon('arrow')}</button>
+    <small class="qf-note">No obligation. We reply within one business day.</small>
+  </form>
+  <div class="form-success" role="status" aria-live="polite">
+    <div class="ok">{icon('check', width=2.4)}</div>
+    <h2 class="qf-title">Thanks. We have your request.</h2>
+    <p>We will contact you within one business day to schedule your free site survey. Need us sooner? Call {BIZ['phone']}.</p>
+    <div class="btn-row" style="justify-content:center;margin-top:16px"><button class="btn btn--outline" type="button" data-reset-form>Send another request</button></div>
+  </div>
+</div>"""
+
+
+def cta_band(title="Next fire inspection coming up?", text="Book a free site survey today and get a written quote for your kitchen exhaust cleaning.", primary=True, form=True, service=None):
+    if form:
+        ticks = "".join(f"<li>{icon('check-circle')}{t}</li>" for t in ["Free site survey and written quote", "First service free for new programs", "NFPA 96 compliant, IKECA certified"])
+        return f"""<section class="cta-band cta-band--form" id="request-quote">
+  <div class="container">
+    <div class="cta-band__copy">
+      <span class="eyebrow" style="color:#FFD9D9">Request a quote</span>
+      <h2>{title}</h2><p>{text}</p>
+      <ul class="cta-band__ticks">{ticks}</ul>
+      <div class="btn-row">{btn_call("btn--ghost")}</div>
+    </div>
+    {quote_form("bq", "Request a quote", "Tell us a little about your kitchen. It takes under a minute.", service)}
+  </div>
+</section>"""
     btns = (btn_quote(cls="btn--white") if primary else "") + btn_call("btn--ghost")
     return f"""<section class="cta-band">
   <div class="container">

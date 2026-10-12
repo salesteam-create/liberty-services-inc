@@ -4,7 +4,7 @@ from components import (
     CTX, u, a, page, page_hero, btn_quote, btn_call, float_card, trust_strip, logo_strip,
     services_section, service_cards, other_services, nfpa_section, process_section, proof_section,
     industries_section, why_section, testimonials_section, compliance_section, service_areas_section,
-    faq_section, cta_band, filtershine_callout, feature_grid, steps, checklist, testimonials_block,
+    faq_section, cta_band, quote_form, filtershine_callout, feature_grid, steps, checklist, testimonials_block,
 )
 from data import BIZ, SERVICES, POSTS, SERVICE_FAQ, HOME_FAQ
 from icons import icon
@@ -16,82 +16,61 @@ SITE = "Liberty Services Inc."
 
 HERO_SLIDES = [
     {
-        "label": "Hood cleaning", "eyebrow": "Trusted by kitchens in the Midwest",
+        "label": "Hood cleaning", "service": "hood-cleaning", "eyebrow": "Trusted by kitchens in the Midwest",
         "title": "Commercial kitchen cleaning built for safer operations",
         "text": "You focus on customers. We handle grease. For over 20 years, restaurants in Dayton and the Midwest have trusted Liberty Services for exhaust cleaning and grease containment.",
-        "img": "photos/hood-hero.jpg", "thumb": "photos/liberty-hood-cleaning.jpg",
-        "card": ("shield", "Inspection-ready, every visit.", "Certified service, before-and-after photos and clear reports."),
-        "badge": ("star", "First service free", "Start your compliance program risk-free."),
-        "primary": None,
+        "img": "photos/hood-hero.jpg", "primary": None,
     },
     {
-        "label": "Filter exchange", "eyebrow": "Filter exchange",
+        "label": "Filter exchange", "service": "filter-exchange", "eyebrow": "Filter exchange",
         "title": "Clean filters. Every visit. Zero scrubbing.",
         "text": "Professionally cleaned stainless steel filters swapped in on schedule, so your staff never scrubs a filter again and far less grease goes down your drains.",
-        "img": "photos/chef-heatlamps.jpg", "thumb": "photos/liberty-clean-hood-filters.jpg",
-        "card": ("filter", "Better airflow, lower risk.", "Clean filters are your first line of defense against fire."),
-        "badge": ("leaf", "Cleaner water", "Grease captured before it reaches drains and waterways."),
-        "primary": ("Explore Filter Exchange", "services/filter-exchange/"),
+        "img": "photos/chef-heatlamps.jpg", "primary": ("Explore Filter Exchange", "services/filter-exchange/"),
     },
     {
-        "label": "Grease management", "eyebrow": "Grease management",
+        "label": "Grease management", "service": "grease-management", "eyebrow": "Grease management",
         "title": "Keep grease off your roof and out of your drains",
         "text": "Containment for exhaust systems, rooftops, drains and grease traps that protects your facility and helps keep you on the right side of EPA codes.",
-        "img": "photos/line-flame.jpg", "thumb": "photos/liberty-grease-containment.jpg",
-        "card": ("droplet", "Collect. Contain. Drain.", "Systems that hold grease and let rainwater run off."),
-        "badge": ("shield", "Protect your roof", "Stop grease from breaking down roofing materials."),
-        "primary": ("Explore Grease Management", "services/grease-management/"),
+        "img": "photos/line-flame.jpg", "primary": ("Explore Grease Management", "services/grease-management/"),
     },
     {
-        "label": "Rooftop services", "eyebrow": "Rooftop services",
+        "label": "Rooftop services", "service": "rooftop-services", "eyebrow": "Rooftop services",
         "title": "Rooftop exhaust fans that keep running",
         "text": "Exhaust fan service and repairs, including belts, motors, hinge kits, access panels and cleanup, so your equipment stays reliable and your roof stays protected.",
-        "img": "photos/technician-work.jpg", "thumb": "photos/technician.jpg",
-        "card": ("wrench", "Repairs on the spot.", "Belts, motors and bearings handled while we are on the roof."),
-        "badge": ("fan", "Hinge kits installed", "Safe, code-ready access to every exhaust fan."),
-        "primary": ("Explore Rooftop Services", "services/rooftop-services/"),
+        "img": "photos/technician-work.jpg", "primary": ("Explore Rooftop Services", "services/rooftop-services/"),
     },
 ]
 
 
 def home_hero():
-    slides, dots = [], []
+    bgs, slides, dots = [], [], []
     for i, s in enumerate(HERO_SLIDES):
         tag = "h1" if i == 0 else "h2"
-        primary = btn_quote() if not s["primary"] else btn_quote(s["primary"][0], target=s["primary"][1])
-        ci, ct, cd = s["card"]
-        slides.append(f"""<div class="hero__slide{' is-active' if i == 0 else ''}" role="group" aria-roledescription="slide" aria-label="{i + 1} of {len(HERO_SLIDES)}: {s['label']}">
-  <div class="container hero__inner">
-    <div class="hero__copy">
-      <span class="eyebrow eyebrow--rule">{s['eyebrow']}</span>
-      <{tag} class="display h-xl">{s['title']}</{tag}>
-      <p>{s['text']}</p>
-      <div class="btn-row">{primary}{btn_call()}</div>
-    </div>
-    <div class="hero__media">
-      <div class="hero__img"><img src="{a(s['img'])}" alt="" width="590" height="550"{'' if i == 0 else ' loading="lazy"'}></div>
-      <div class="hero__cards">
-        <div class="hero__cardrow">
-          <div class="hero__thumb"><img src="{a(s['thumb'])}" alt="" loading="lazy"></div>
-          <div class="float-card float-card--col"><span class="fc-icon">{icon(ci)}</span><div><h3>{ct}</h3><p>{cd}</p></div></div>
-        </div>
-        {float_card(*s['badge'])}
-      </div>
-    </div>
-  </div>
+        primary = btn_quote("Explore Our Services", target="services/") if not s["primary"] else btn_quote(s["primary"][0], target=s["primary"][1])
+        bgs.append(f'<div class="hero__bgimg{" is-active" if i == 0 else ""}"><img src="{a(s["img"])}" alt=""{"" if i == 0 else " loading=\"lazy\""}></div>')
+        slides.append(f"""<div class="hero__slide{' is-active' if i == 0 else ''}" data-service="{s['service']}" role="group" aria-roledescription="slide" aria-label="{i + 1} of {len(HERO_SLIDES)}: {s['label']}">
+  <span class="eyebrow eyebrow--rule">{s['eyebrow']}</span>
+  <{tag} class="display h-xl">{s['title']}</{tag}>
+  <p>{s['text']}</p>
+  <div class="btn-row">{primary}{btn_call()}</div>
 </div>""")
-        dots.append(f'<button class="hero__dot{" is-active" if i == 0 else ""}" type="button" role="tab" aria-selected="{"true" if i == 0 else "false"}" aria-label="Show {s["label"]}"><span class="num">0{i + 1}</span><span class="lbl">0{i + 1} {s["label"]}</span><span class="bar"></span></button>')
+        dots.append(f'<button class="hero__dot{" is-active" if i == 0 else ""}" type="button" role="tab" aria-selected="{"true" if i == 0 else "false"}" aria-label="Show {s["label"]}"><span class="num">0{i + 1}</span><span class="lbl">{s["label"]}</span><span class="bar"></span></button>')
+    ticks = "".join(f"<li>{icon('check-circle')}{t}</li>" for t in ["IKECA certified", "NFPA 96 compliant", "Bonded & insured"])
     return f"""<section class="hero" data-hero data-mode="slider" aria-roledescription="carousel" aria-label="Liberty Services highlights">
-  <div class="hero__bg"></div>
-  <div class="hero__track">{''.join(slides)}</div>
-  <div class="hero__controls">
-    <div class="container">
-      <div class="hero__dots" role="tablist" aria-label="Choose a slide">{''.join(dots)}</div>
-      <div class="hero__arrows">
-        <button class="hero__arrow hero__arrow--prev" type="button" aria-label="Previous slide">{icon('arrow-left')}</button>
-        <button class="hero__arrow hero__arrow--next" type="button" aria-label="Next slide">{icon('arrow')}</button>
+  <div class="hero__bgs" aria-hidden="true">{''.join(bgs)}</div>
+  <div class="container hero__inner">
+    <div class="hero__left">
+      <div class="hero__track">{''.join(slides)}</div>
+      <ul class="hero__ticks">{ticks}</ul>
+      <div class="hero__controls">
+        <div class="hero__dots" role="tablist" aria-label="Choose a slide">{''.join(dots)}</div>
+        <div class="hero__arrows">
+          <button class="hero__arrow hero__arrow--prev" type="button" aria-label="Previous slide">{icon('arrow-left')}</button>
+          <button class="hero__arrow hero__arrow--next" type="button" aria-label="Next slide">{icon('arrow')}</button>
+        </div>
       </div>
     </div>
+    <div class="hero__form" id="request-quote">{quote_form("hq", service="hood-cleaning")}</div>
   </div>
 </section>"""
 
@@ -100,7 +79,7 @@ def home():
     body = "\n".join([
         home_hero(), trust_strip(), logo_strip(), services_section(), nfpa_section(), process_section(),
         proof_section(), industries_section(), why_section(), compliance_section(), service_areas_section(),
-        faq_section(), cta_band(),
+        faq_section(), cta_band(form=False),
     ])
     return page(f"Commercial Kitchen Hood Cleaning | {SITE}",
                 "Certified commercial kitchen hood cleaning, filter exchange, grease management and rooftop services across Ohio, Indiana, Kentucky, Michigan and West Virginia.",
@@ -232,7 +211,7 @@ def about_filtershine():
   </div>
 </section>"""
     body = "\n".join([hero, partner, how, reduce, water, testimonials_section(soft=True),
-                      cta_band("Ready to stop scrubbing filters?", "Set up a filter exchange schedule and see the difference in your airflow, drains and closing routine.")])
+                      cta_band("Ready to stop scrubbing filters?", "Set up a filter exchange schedule and see the difference in your airflow, drains and closing routine.", service="filter-exchange")])
     return page(f"About FilterShine Filter Exchange | {SITE}",
                 "Liberty Services partners with FilterShine Midwest for commercial kitchen hood filter exchange. Clean stainless steel filters on schedule, cleaned to bare metal.", body)
 
@@ -438,7 +417,7 @@ def service_page(slug):
         f'<section class="section section--soft"><div class="container">{testimonials_block()}</div></section>',
         other_services(slug),
         faq_section(SERVICE_FAQ[slug], title=f"{s['name']} questions, answered.", soft=False),
-        cta_band("Schedule your service today", "One partner for hood cleaning, filter exchange, grease management and rooftop services. Start with a free site survey."),
+        cta_band("Schedule your service today", "One partner for hood cleaning, filter exchange, grease management and rooftop services. Start with a free site survey.", service=slug),
     ])
     return page(f"{s['name']} | Commercial Kitchen {s['name']} | {SITE}", s["summary"], body)
 
@@ -550,7 +529,7 @@ def contact():
   <div class="container contact">
     <div class="form-card" id="quote">
       <!-- Front-end prototype: validation and success state only. Connect to a form handler or CRM before launch. -->
-      <form id="quote-form" novalidate>
+      <form id="quote-form" class="js-quote" novalidate>
         <h2>Request a quote</h2>
         <p>Fields marked * are required. We usually reply within one business day.</p>
         <div class="form-grid">
@@ -590,7 +569,7 @@ def contact():
     faq = faq_section(HOME_FAQ[2:] + [("Which areas do you serve?", "We serve commercial kitchens across Ohio, Indiana, Kentucky, Michigan and West Virginia from our headquarters in West Milton, Ohio. If you are just outside that area, call us and we will let you know what is possible.")],
                       title="Before you reach out.", soft=True, more=False)
     body = "\n".join([hero, form, logo_strip(), faq, testimonials_section(soft=False),
-                      cta_band("Prefer to talk it through?", "Our team can answer questions about scheduling, NFPA 96 frequency and pricing over the phone.", primary=False)])
+                      cta_band("Prefer to talk it through?", "Our team can answer questions about scheduling, NFPA 96 frequency and pricing over the phone.", primary=False, form=False)])
     return page(f"Contact & Free Quote | {SITE}", "Request a free site survey and written quote for commercial kitchen hood cleaning, filter exchange, grease management or rooftop services.", body)
 
 

@@ -58,6 +58,10 @@
   var heroApi = null;
   if (hero) {
     var slides = $$('.hero__slide', hero);
+    var bgs = $$('.hero__bgimg', hero);
+    var heroSvc = $('.hero__form select[name="service"]', hero);
+    var svcTouched = false;
+    if (heroSvc) heroSvc.addEventListener('change', function () { svcTouched = true; });
     var dots = $$('.hero__dot', hero);
     var interval = cfg.heroInterval || 7000;
     hero.style.setProperty('--hero-interval', interval + 'ms');
@@ -71,6 +75,8 @@
         s.setAttribute('aria-hidden', String(!on));
         $$('a, button', s).forEach(function (el) { el.tabIndex = on ? 0 : -1; });
       });
+      bgs.forEach(function (b, n) { b.classList.toggle('is-active', n === idx); });
+      if (heroSvc && !svcTouched && slides[idx].dataset.service) heroSvc.value = slides[idx].dataset.service;
       dots.forEach(function (d, n) {
         d.classList.toggle('is-active', n === idx);
         d.setAttribute('aria-selected', String(n === idx));
@@ -183,42 +189,43 @@
     });
   }
 
-  /* ---------- Quote form (front-end only) ---------- */
-  var qform = $('#quote-form');
-  if (qform) {
-    var params = new URLSearchParams(window.location.search);
-    var pre = params.get('service');
-    if (pre) { var box = qform.querySelector('input[name="services"][value="' + pre + '"]'); if (box) box.checked = true; }
-
-    function check(field) {
-      var input = $('input, select, textarea', field);
-      if (!input) return true;
-      var ok = true;
-      if (input.required && !String(input.value).trim()) ok = false;
-      if (ok && input.type === 'email' && input.value) ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.value);
-      if (ok && input.type === 'tel' && input.value) ok = input.value.replace(/\D/g, '').length >= 10;
-      if (ok && field.dataset.group) ok = $$('input:checked', field).length > 0;
-      field.classList.toggle('has-error', !ok);
-      return ok;
-    }
-    $$('.field', qform).forEach(function (f) {
-      var input = $('input, select, textarea', f);
-      if (input) input.addEventListener('blur', function () { if (f.classList.contains('has-error') || input.value) check(f); });
-      f.addEventListener('change', function () { if (f.classList.contains('has-error')) check(f); });
-    });
-    qform.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var bad = $$('.field', qform).filter(function (f) { return !check(f); });
-      if (bad.length) { var first = $('input, select, textarea', bad[0]); if (first) first.focus(); return; }
-      var card = qform.closest('.form-card');
-      card.classList.add('is-sent');
-      var name = qform.elements.name.value.trim().split(' ')[0];
-      var t = $('.form-success h2', card); if (t && name) t.textContent = 'Thanks, ' + name + '. We have your request.';
-      card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-    });
-    var again = $('[data-reset-form]');
-    if (again) again.addEventListener('click', function () { qform.reset(); qform.closest('.form-card').classList.remove('is-sent'); });
+  /* ---------- Quote forms (front-end only) ---------- */
+  function checkField(field) {
+    var input = $('input, select, textarea', field);
+    if (!input) return true;
+    var ok = true;
+    if (input.required && !String(input.value).trim()) ok = false;
+    if (ok && input.type === 'email' && input.value) ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.value);
+    if (ok && input.type === 'tel' && input.value) ok = input.value.replace(/\D/g, '').length >= 10;
+    if (ok && field.dataset.group) ok = $$('input:checked', field).length > 0;
+    field.classList.toggle('has-error', !ok);
+    return ok;
   }
+  var pre = new URLSearchParams(window.location.search).get('service');
+  $$('form.js-quote').forEach(function (form) {
+    var card = form.closest('.form-card');
+    if (pre) {
+      var box = form.querySelector('input[name="services"][value="' + pre + '"]'); if (box) box.checked = true;
+      var sel = form.querySelector('select[name="service"]'); if (sel && sel.querySelector('option[value="' + pre + '"]')) sel.value = pre;
+    }
+    $$('.field', form).forEach(function (f) {
+      var input = $('input, select, textarea', f);
+      if (input) input.addEventListener('blur', function () { if (f.classList.contains('has-error') || input.value) checkField(f); });
+      f.addEventListener('change', function () { if (f.classList.contains('has-error')) checkField(f); });
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var bad = $$('.field', form).filter(function (f) { return !checkField(f); });
+      if (bad.length) { var first = $('input, select, textarea', bad[0]); if (first) first.focus(); return; }
+      card.classList.add('is-sent');
+      var name = form.elements.name.value.trim().split(' ')[0];
+      var t = $('.form-success h2', card); if (t && name) t.textContent = 'Thanks, ' + name + '. We have your request.';
+      var r = card.getBoundingClientRect();
+      if (r.top < 0 || r.top > window.innerHeight * 0.6) card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    });
+    var again = $('[data-reset-form]', card);
+    if (again) again.addEventListener('click', function () { form.reset(); $$('.field', form).forEach(function (f) { f.classList.remove('has-error'); }); card.classList.remove('is-sent'); });
+  });
 
   /* ---------- Reveal on scroll ---------- */
   if ('IntersectionObserver' in window && !reduceMotion) {

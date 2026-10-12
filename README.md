@@ -25,6 +25,7 @@ The home hero can run as a four-slide service slider or as a single static hero.
 
 - Launch default: set `heroMode` to `'slider'` or `'static'` in `assets/js/config.js`.
 - Client preview: use the **Prototype options** button (bottom left of the home page), or add `?hero=static` / `?hero=slider` to the URL.
+- The quote form on the right stays in place in both modes. In slider mode only the headline and background photo change, and the form's Service field follows the slide until the visitor picks one.
 - Before launch, set `showPrototypePanel: false` in `assets/js/config.js` to hide the options button.
 
 ## Editing and rebuilding
@@ -61,5 +62,5 @@ Settings > Pages > Deploy from a branch > choose the branch and `/ (root)`. All 
 - **Stats:** 20+ years, 5 states and 100% photo-documented come from the current site. The "100,000 gallons of grease" claim is not used yet.
 - **FilterShine copy:** taken from the FilterShine section of libertyservicesinc.net.
 - **Legal pages:** generic placeholder text, marked on the page.
-- **Quote form:** front-end only (validation and success state). Connect it to a form handler or CRM.
+- **Quote forms:** three places, all front-end only (validation and success state): the short form in the home hero, the short form in the closing red section on every page except Home and Contact, and the full form on Contact. Connect them to a form handler or CRM before launch.
 - **Customer portal login:** links to `#` until the portal URL is supplied.
