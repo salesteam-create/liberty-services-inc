@@ -16,7 +16,7 @@ BIZ = {
     "city": "West Milton, Ohio 45383",
     "linkedin": "https://www.linkedin.com/company/liberty-services-decon/",
     "filtershine": "https://filtershinemidwest.com/",
-    "portal": "#",
+    "portal": "https://liberty-portal-prototype.vercel.app/",
 }
 
 SERVICES = [

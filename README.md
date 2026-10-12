@@ -63,4 +63,3 @@ Settings > Pages > Deploy from a branch > choose the branch and `/ (root)`. All 
 - **FilterShine copy:** taken from the FilterShine section of libertyservicesinc.net.
 - **Legal pages:** generic placeholder text, marked on the page.
 - **Quote forms:** three places, all front-end only (validation and success state): the short form in the home hero, the short form in the closing red section on every page except Home and Contact, and the full form on Contact. Connect them to a form handler or CRM before launch.
-- **Customer portal login:** links to `#` until the portal URL is supplied.
