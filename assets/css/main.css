@@ -163,8 +163,14 @@ h1, h2, h3, h4, p { margin: 0; }
 .nav__menu .mi-icon svg { width: 18px; height: 18px; }
 .nav__menu strong { display: block; font-family: var(--font-display); font-weight: 400; font-size: 18px; letter-spacing: .5px; color: var(--ink-strong); line-height: 1.1; }
 .nav__menu small { display: block; font-size: 12px; color: var(--slate); line-height: 1.35; }
-.nav__menu .menu-all { margin-top: 4px; border-top: 1px solid var(--border-soft); border-radius: 0; padding-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--red-800); }
-.nav__menu .menu-all:hover { background: none; }
+.nav__menu .menu-all {
+  margin-top: 6px; padding: 12px 14px; align-items: center; justify-content: space-between;
+  border-radius: 6px; background: var(--red-800); color: #fff;
+  font-size: 13px; font-weight: 600; letter-spacing: .2px; white-space: nowrap;
+}
+.nav__menu .menu-all svg { width: 18px; height: 18px; flex: none; transition: transform .2s; }
+.nav__menu .menu-all:hover { background: var(--red-950); }
+.nav__menu .menu-all:hover svg { transform: translateX(3px); }
 .header-cta { display: flex; align-items: center; gap: 20px; flex: none; }
 .header-phone { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-display); font-size: 19px; letter-spacing: .5px; color: var(--ink); }
 .header-phone svg { width: 16px; height: 16px; color: var(--red-700); }
