@@ -1,0 +1,261 @@
+"""Shared content for the Liberty Services prototype.
+
+Business facts (address, phones, fax, service area, certifications, services
+included) come from libertyservicesinc.net. Testimonials, city lists, blog
+posts and longer service copy are realistic drafts for client review.
+"""
+
+BIZ = {
+    "name": "Liberty Services, Inc.",
+    "phone": "937-698-3322",
+    "phone_href": "tel:+19376983322",
+    "tollfree": "877-217-7199",
+    "tollfree_href": "tel:+18772177199",
+    "fax": "937-698-3324",
+    "street": "1005 S. Main Street",
+    "city": "West Milton, Ohio 45383",
+    "linkedin": "https://www.linkedin.com/company/liberty-services-decon/",
+    "filtershine": "https://filtershinemidwest.com/",
+    "portal": "#",
+}
+
+SERVICES = [
+    {
+        "slug": "hood-cleaning",
+        "name": "Hood Cleaning",
+        "short": "Hood Cleaning",
+        "icon": "hood",
+        "card_img": "photos/liberty-hood-cleaning.jpg",
+        "hero_img": "photos/hood-hero.jpg",
+        "summary": "Commercial kitchen hood and exhaust cleaning that removes grease from hoods, ductwork and fans, helping reduce fire risk and keep systems clean and compliant.",
+        "menu": "Hood, duct and fan cleaning to bare metal",
+        "bullets": ["Hood, plenum, ducts and fans", "Cleaned to bare metal", "Before-and-after photos", "NFPA 96 service certificate"],
+    },
+    {
+        "slug": "filter-exchange",
+        "name": "Filter Exchange",
+        "short": "Filter Exchange",
+        "icon": "filter",
+        "card_img": "photos/liberty-clean-hood-filters.jpg",
+        "hero_img": "photos/chef-heatlamps.jpg",
+        "summary": "Recurring commercial kitchen filter exchange with professionally cleaned replacement filters, improving airflow, cleanliness and fire safety with minimal disruption.",
+        "menu": "Clean filters swapped in on a set schedule",
+        "bullets": ["Scheduled filter swaps", "Filters cleaned off site", "Up to 60-70% less grease down drains", "No caustic degreasers in your kitchen"],
+    },
+    {
+        "slug": "grease-management",
+        "name": "Grease Management",
+        "short": "Grease Management",
+        "icon": "droplet",
+        "card_img": "photos/liberty-grease-containment.jpg",
+        "hero_img": "photos/line-flame.jpg",
+        "summary": "Commercial kitchen grease containment and management that controls grease around exhaust systems, rooftops, drains and grease traps, protecting facilities and reducing hazards.",
+        "menu": "Containment for exhausts, roofs and drains",
+        "bullets": ["Rooftop grease containment", "Grease boxes and gutters", "Drain and trap protection", "Supports EPA compliance"],
+    },
+    {
+        "slug": "rooftop-services",
+        "name": "Rooftop Services",
+        "short": "Rooftop Services",
+        "icon": "fan",
+        "card_img": "photos/technician.jpg",
+        "hero_img": "photos/technician-work.jpg",
+        "summary": "Commercial kitchen rooftop exhaust fan service and repairs, including belts, motors, hinge kits, access, grease containment systems and cleanup, keeping equipment reliable and roofs protected.",
+        "menu": "Exhaust fan service, repairs and hinge kits",
+        "bullets": ["Belts, motors and bearings", "Exhaust fan hinge kits", "Access panels and doors", "Roof cleanup and protection"],
+    },
+]
+
+TESTIMONIALS = [
+    {
+        "quote": "Liberty has handled our hoods for years. The crew comes in after close, leaves the kitchen cleaner than they found it, and the photo report is in my inbox before we open.",
+        "who": "General Manager, full-service restaurant, Dayton OH",
+        "init": "GM",
+    },
+    {
+        "quote": "With multiple locations I need one vendor and one set of records. Reports land in our facility software automatically, so I am never chasing paperwork before an inspection.",
+        "who": "Facilities Director, multi-unit QSR franchisee",
+        "init": "FD",
+    },
+    {
+        "quote": "Our fire marshal asked for proof of our last cleaning. I pulled up the certificate and before-and-after photos on my phone in under a minute.",
+        "who": "Food Service Director, Ohio school district",
+        "init": "FS",
+    },
+    {
+        "quote": "Filter exchange changed our closing routine. No more scrubbing filters in the dish sink, and our grease trap needs pumping far less often.",
+        "who": "Owner, independent restaurant, Kentucky",
+        "init": "OW",
+    },
+]
+
+STATES = [
+    {"key": "OH", "name": "Ohio", "cities": ["Dayton", "Cincinnati", "Columbus", "Springfield", "Troy & Piqua", "Toledo"]},
+    {"key": "IN", "name": "Indiana", "cities": ["Indianapolis", "Fort Wayne", "Richmond", "Muncie"]},
+    {"key": "KY", "name": "Kentucky", "cities": ["Louisville", "Lexington", "Northern Kentucky"]},
+    {"key": "MI", "name": "Michigan", "cities": ["Detroit", "Ann Arbor", "Grand Rapids"]},
+    {"key": "WV", "name": "West Virginia", "cities": ["Charleston", "Huntington", "Parkersburg"]},
+]
+
+HOME_FAQ = [
+    ("How often should a commercial kitchen hood be cleaned?",
+     "NFPA 96 sets the minimum: monthly for solid-fuel cooking, quarterly for high-volume operations (24-hour, charbroiling, wok), semi-annually for moderate volume and annually for low-volume kitchens. Your local fire marshal or insurer may require more."),
+    ("What does \"cleaned to bare metal\" mean?",
+     "It means we remove grease from every accessible surface of the hood, plenum, ductwork and exhaust fan until the original metal shows. That is the standard NFPA 96 expects, and it covers far more than the parts restaurant owners and inspectors can see."),
+    ("Will cleaning disrupt my kitchen?",
+     "No. Our crews work after close or before you open, protect your cooking line and floors, and leave the kitchen ready for the next shift. Most systems are finished in a single overnight visit."),
+    ("What do I receive after each service?",
+     "Every job includes before-and-after photos, GPS-stamped arrival and completion times, deficiency notes with repair recommendations and a service certificate. Reports are stored in your customer portal and can sync to ServiceChannel and Corrigo."),
+    ("Is the first service really free?",
+     "Yes. New customers who start a recurring compliance program receive their first service free. We confirm the details and your schedule during the free site survey."),
+]
+
+SERVICE_FAQ = {
+    "hood-cleaning": [
+        ("How long does a hood cleaning take?", "Most single-hood systems take three to five hours. Larger kitchens with multiple hoods or long duct runs can take a full overnight shift. We confirm timing during your site survey."),
+        HOME_FAQ[0],
+        ("Do I need to prepare the kitchen?", "Just turn off cooking equipment and let it cool before we arrive. We cover equipment, protect floors and handle the rest, including cleanup."),
+        ("Will you put a sticker on the hood?", "Yes. After every cleaning we apply a dated service label to the hood, and your full photo report and certificate are uploaded to your customer portal."),
+    ],
+    "filter-exchange": [
+        ("How often are filters exchanged?", "Most kitchens swap filters every one to four weeks depending on cooking volume. We set a schedule during your survey and adjust it as your volume changes."),
+        ("Do I own the filters?", "Exchange programs use a rotating set of professionally cleaned stainless steel filters, so you never have to buy, store or replace your own."),
+        ("Why not just wash filters in-house?", "Washing filters on site sends grease down your drains, takes staff time and rarely gets filters to bare metal. Off-site cleaning keeps up to 60-70% of that grease out of your plumbing."),
+    ],
+    "grease-management": [
+        ("Why is grease on my roof a problem?", "Rooftop grease breaks down roofing materials, creates a fire hazard and washes into storm drains when it rains or snow melts, which can put you in violation of EPA codes."),
+        ("What kind of containment do I need?", "It depends on your fan type, roof material and cooking volume. Our technicians assess where your exhaust meets the roof and recommend the right mix of interceptors, grease boxes and gutters."),
+        ("Do you service containment after it is installed?", "Yes. We can replace filter media and clean containment units on the same visit as your hood cleaning, so you only schedule once."),
+    ],
+    "rooftop-services": [
+        ("Why does my exhaust fan need hinge kits?", "NFPA 96 requires safe access to clean the fan. A hinge kit lets technicians tilt the fan open without damaging it or the curb, and it makes every future cleaning faster and safer."),
+        ("Can you repair a fan that stopped working?", "Yes. We diagnose and replace belts, motors and bearings, and we will tell you when a repair no longer makes sense compared with a replacement."),
+        ("Do you clean up the roof after service?", "Always. We remove grease, debris and used materials and leave the area around your exhaust fan clean and protected."),
+    ],
+}
+
+POSTS = [
+    {
+        "slug": "nfpa-96-cleaning-frequency-guide",
+        "title": "NFPA 96 cleaning frequency: how often should your hood be cleaned?",
+        "cat": "Compliance",
+        "date": "October 2, 2026",
+        "read": "6 min read",
+        "img": "photos/hood-hero.jpg",
+        "excerpt": "Monthly, quarterly, semi-annually or annually? Here is how NFPA 96 sets your schedule and what pushes a kitchen into a higher tier.",
+        "body": [
+            ("p", "If you run a commercial kitchen, NFPA 96 is the standard your fire marshal and insurer use to judge whether your exhaust system is safe. One of the first questions it answers is how often that system needs to be inspected and cleaned."),
+            ("h2", "The four NFPA 96 frequency tiers"),
+            ("ul", ["Monthly: systems serving solid-fuel cooking such as wood-fired ovens, charcoal grills and pizza ovens.", "Quarterly: high-volume operations including 24-hour kitchens, charbroiling and wok cooking.", "Semi-annually: moderate-volume cooking, which covers most full-service restaurants.", "Annually: low-volume kitchens such as churches, day camps and seasonal operations."]),
+            ("h2", "What moves you into a higher tier"),
+            ("p", "Volume is not just about hours. Menu matters. A kitchen that adds charbroiled items or extends late-night service can produce far more grease vapor than it did a year ago. If your inspection photos show heavy buildup before your next scheduled visit, your frequency is too low."),
+            ("blockquote", "The right schedule is the one that keeps grease from building up between visits, not the one that is easiest to remember."),
+            ("h2", "Your local rules can be stricter"),
+            ("p", "NFPA 96 sets the minimum. Local fire codes, landlords and insurance carriers can and often do require more frequent service. Always check your lease and policy, and keep your service records where you can find them quickly."),
+            ("h2", "How Liberty Services sets your schedule"),
+            ("p", "During a free site survey we look at your cooking equipment, menu, hours and the condition of your hoods, ducts and fans. You get a written recommendation, and every visit after that comes with photos so you can see whether the schedule is working."),
+        ],
+    },
+    {
+        "slug": "what-fire-inspectors-look-for",
+        "title": "What fire inspectors look for in your kitchen exhaust system",
+        "cat": "Compliance",
+        "date": "September 18, 2026",
+        "read": "5 min read",
+        "img": "photos/site-survey.jpg",
+        "excerpt": "Inspectors do not stop at the hood. Here is the checklist they work through and how to be ready before they arrive.",
+        "body": [
+            ("p", "A fire inspection can feel unpredictable, but inspectors follow a fairly consistent checklist when it comes to kitchen exhaust. Knowing what they look for makes it easy to stay ready."),
+            ("h2", "1. A current service label"),
+            ("p", "The first thing most inspectors check is the dated label on your hood. It should show the company, the date of the last cleaning and the areas that were not cleaned, if any."),
+            ("h2", "2. Grease beyond the hood"),
+            ("p", "Many inspectors will look up into the plenum, ask about duct access panels and sometimes check the rooftop fan. A shiny hood with greasy ducts is still a violation."),
+            ("h2", "3. Filters in good condition"),
+            ("p", "Filters should be the correct type, installed without gaps and free of heavy buildup. Missing or damaged filters let grease straight into the ductwork."),
+            ("h2", "4. Records you can produce"),
+            ("p", "Being able to show cleaning reports, photos and deficiency notes quickly tells an inspector that your system is managed, not ignored."),
+            ("h2", "Make inspection day routine"),
+            ("p", "Liberty Services customers get a photo report and certificate after every visit, stored in a portal they can open on any phone. When the inspector asks, the proof takes seconds to find."),
+        ],
+    },
+    {
+        "slug": "filter-exchange-vs-cleaning-in-house",
+        "title": "Filter exchange vs. cleaning filters in-house: the real cost",
+        "cat": "Operations",
+        "date": "September 4, 2026",
+        "read": "4 min read",
+        "img": "photos/chef-heatlamps.jpg",
+        "excerpt": "Scrubbing filters after close looks free. Once you add labor, chemicals, drain calls and fire risk, the math changes.",
+        "body": [
+            ("p", "Cleaning hood filters in the dish sink is a familiar end-of-night job. It feels like a cost you have already paid for, since the staff are on the clock anyway. In practice it is one of the most expensive ways to keep filters clean."),
+            ("h2", "Where the hidden costs come from"),
+            ("ul", ["Labor: 30 to 60 minutes per cleaning, often at the end of a long shift.", "Chemicals: caustic degreasers that are hard on staff and equipment.", "Plumbing: grease washed into drains builds up in lines and grease traps.", "Injuries: hot water, sharp edges and slippery floors."]),
+            ("h2", "What filter exchange changes"),
+            ("p", "With an exchange program, technicians remove your grease-laden filters and install clean stainless steel replacements on a set schedule. The dirty filters are cleaned off site, down to bare metal. Off-site cleaning keeps up to 60-70% of that grease out of your drains."),
+            ("h2", "The bottom line"),
+            ("p", "Most kitchens find that exchange costs less than the labor, chemicals and drain service it replaces, with better airflow and lower fire risk as a bonus. Liberty Services partners with FilterShine Midwest to run exchange programs for our customers."),
+        ],
+    },
+    {
+        "slug": "rooftop-grease-damage",
+        "title": "How rooftop grease damages your roof, and how to stop it",
+        "cat": "Facilities",
+        "date": "August 21, 2026",
+        "read": "5 min read",
+        "img": "photos/technician-work.jpg",
+        "excerpt": "Grease that escapes your exhaust fan does not stay put. It eats roofing, feeds fires and washes into storm drains.",
+        "body": [
+            ("p", "Every kitchen exhaust fan pushes some grease vapor out onto the roof. Without containment, that grease condenses, pools around the fan curb and spreads across the roofing membrane."),
+            ("h2", "What rooftop grease does"),
+            ("ul", ["Breaks down roofing materials and shortens roof life.", "Creates a fire hazard right next to your exhaust fan.", "Runs off when it rains or snow melts, into storm drains and sewers.", "Can put your facility in violation of EPA codes."]),
+            ("h2", "Containment that works"),
+            ("p", "A proper grease containment system collects and holds grease while letting rainwater drain away. Depending on your fan and roof, that might mean exhaust fan interceptors, grease boxes, grease gutters or curb deflectors."),
+            ("h2", "Make it part of your routine"),
+            ("p", "Containment only works if it is maintained. Liberty Services can inspect and service rooftop containment on the same visit as your hood cleaning, so nothing gets missed."),
+        ],
+    },
+    {
+        "slug": "kitchen-exhaust-fire-warning-signs",
+        "title": "5 warning signs your kitchen exhaust is a fire risk",
+        "cat": "Fire Safety",
+        "date": "August 7, 2026",
+        "read": "4 min read",
+        "img": "photos/line-flame.jpg",
+        "excerpt": "Grease fires in exhaust systems spread fast. These are the early signs your system needs attention now.",
+        "body": [
+            ("p", "Grease in any form, solid, liquid or vapor, is highly flammable. When it builds up inside hoods and ducts, a single flare-up on the line can travel through the whole system in seconds."),
+            ("h2", "1. Grease dripping from the hood"),
+            ("p", "If you see grease running down the hood edges or dripping onto equipment, buildup inside the system is already heavy."),
+            ("h2", "2. Smoke that lingers"),
+            ("p", "Poor capture usually means clogged filters, a greasy fan or a slipping belt. All three increase risk."),
+            ("h2", "3. A loud or vibrating fan"),
+            ("p", "Grease buildup on fan blades throws them off balance, and worn belts or bearings make it worse."),
+            ("h2", "4. An out-of-date service label"),
+            ("p", "If your last cleaning is past due for your NFPA 96 tier, assume buildup is beyond safe limits."),
+            ("h2", "5. Grease on the roof"),
+            ("p", "Staining or pooling around the exhaust fan means grease is escaping the system and adding fuel outside."),
+            ("h2", "What to do next"),
+            ("p", "Book an inspection. Liberty Services offers a free site survey with a written quote and a schedule matched to your cooking volume."),
+        ],
+    },
+    {
+        "slug": "multi-unit-compliance-records",
+        "title": "Managing exhaust compliance across multiple locations",
+        "cat": "Operations",
+        "date": "July 24, 2026",
+        "read": "5 min read",
+        "img": "photos/restaurant-dining.jpg",
+        "excerpt": "More locations mean more schedules, more inspectors and more paperwork. Here is how multi-unit operators keep it under control.",
+        "body": [
+            ("p", "For a single restaurant, staying on top of hood cleaning is a calendar reminder. For a group of ten or fifty locations, it is a system, and gaps in that system show up as failed inspections and insurance questions."),
+            ("h2", "Standardize the schedule, not the frequency"),
+            ("p", "Every location should be on a documented NFPA 96 schedule, but that schedule should match each kitchen's cooking volume. A late-night location may need quarterly service while a lunch-only site needs semi-annual."),
+            ("h2", "Keep records in one place"),
+            ("p", "Before-and-after photos, certificates and deficiency notes should be stored centrally, not in a binder at each store. Liberty Services reports can sync directly to ServiceChannel and Corrigo."),
+            ("h2", "Use GPS confirmation"),
+            ("p", "GPS-stamped arrival and completion times prove that work happened when and where it was scheduled, which matters when you cannot be on site."),
+            ("h2", "One partner for every system"),
+            ("p", "Bundling hood cleaning, filter exchange, grease management and rooftop service with one vendor means one schedule, one invoice and one point of contact for every location."),
+        ],
+    },
+]
